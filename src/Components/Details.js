@@ -144,11 +144,13 @@ export default function Details() {
 
                 <div className="input-group input-group-lg">
                     <span className="input-group-text" id="inputGroup-sizing-lg" >הכנס מס' ילדים</span>
-                    <input type="number" onChange={(e) =>
+                    <input type="number"  {...register("numChildren", { min:0 })}
+                        onChange={(e) =>
                         handle(e.target.value)
                     } defaultValue={userCtx.numChildernState}
                     />
                 </div>
+                {errors?.numChildren?.type === "min" && <p>אין אפשרות להזין מס' קטן מאפס</p>}
 
                 {userCtx.childrenFormArr}
 
