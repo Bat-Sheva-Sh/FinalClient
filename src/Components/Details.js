@@ -4,6 +4,7 @@ import axios from 'axios';
 import UpdateChildern from './UpdateChildern'
 import { userContext } from './UserContext';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
 
 export default function Details() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,7 +14,6 @@ export default function Details() {
     const [submit2, setSubmit2] = useState(false);
     const [end, setEnd] = useState(false)
     const [tz, setTz] = useState()
-
 
     const handle = (e) => {
         userCtx.setNumChildrenState(e);
@@ -154,7 +154,10 @@ export default function Details() {
 
                 {userCtx.childrenFormArr}
 
-                <input type="submit" />
+                 <Button variant="contained"
+                    style={{ cursor: "pointer", fontsize: 14 }} type="submit">שליחה
+                </Button>
+
             </form>
             {localStorage.setItem(1, tz)}
             {end && navigate('/GoodBye')}
